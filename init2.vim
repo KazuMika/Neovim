@@ -125,7 +125,7 @@ set backspace=indent,eol,start
 set list
 set listchars=trail:.
 set timeoutlen=200
-set clipboard+=unnamed
+set clipboard=unnamedplus
 
 "-------------------------------------------
 " neosnippet

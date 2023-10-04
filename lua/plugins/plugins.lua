@@ -1,6 +1,55 @@
 
 return {
 
+  ----------------------------------- # from here
+
+
+  -- call dein#add('nvim-telescope/telescope-file-browser.nvim')
+  { 'Shougo/deoplete.nvim',
+    config = function()
+      require('plugins/config/deoplete')
+    end
+  },
+  { 'zchee/deoplete-jedi',
+  },
+  { 'davidhalter/jedi-vim',
+  },
+  { 'Shougo/neosnippet.vim',
+  },
+
+  { 'Shougo/neosnippet-snippets',
+  },
+  { 'w0rp/ale',
+  },
+  {'akinsho/toggleterm.nvim', 
+    version = "*", 
+    config = true,
+    config = function()
+      require('plugins/config/toggleterm')
+    end
+  },
+
+  { 'voldikss/vim-floaterm',
+    config = function()
+      require('plugins/config/vim-floaterm')
+    end
+  },
+  { 'ervandew/supertab',
+    config = function()
+      require('plugins/config/supertab')
+    end
+  },
+
+  ----------------------------------- # to this points
+  ---
+  { "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 500,
+    opts = {},
+    config = function()
+      vim.cmd[[colorscheme tokyonight]]
+    end
+  },
   { 'kien/ctrlp.vim',
     config = function()
       require('plugins/config/ctrlp')
@@ -34,12 +83,12 @@ return {
       require('plugins/config/lualine')
     end
   },
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   config = function()
-  --     require('plugins/config/gitsigns')
-  --   end
-  -- },
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('plugins/config/gitsigns')
+    end
+  },
   {
     'numToStr/Comment.nvim',
     config = function()
@@ -75,10 +124,16 @@ return {
   },
     {
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+    tag = "0.1.3",
+    dependencies = {  'nvim-lua/plenary.nvim',"nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },},
     cmd = "Telescope",
     config = function()
       require('plugins/config/telescope')
+    end
+  },
+  { 'nvim-telescope/telescope-frecency.nvim',
+    config = function()
+      require('plugins/config/telescope-frecency')
     end
   },
 }
