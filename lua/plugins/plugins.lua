@@ -34,12 +34,12 @@ return {
       require('plugins/config/lualine')
     end
   },
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('plugins/config/gitsigns')
-    end
-  },
+  -- {
+  --   'lewis6991/gitsigns.nvim',
+  --   config = function()
+  --     require('plugins/config/gitsigns')
+  --   end
+  -- },
   {
     'numToStr/Comment.nvim',
     config = function()
