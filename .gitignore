@@ -7,3 +7,6 @@ coc-settings.json
 .luarc.json
 lazy-lock.json
 after
+.lua.back2/
+.lua.back3/
+*.py

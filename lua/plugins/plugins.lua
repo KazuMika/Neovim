@@ -14,7 +14,17 @@ return {
   },
 
   {
-  'editorconfig/editorconfig-vim',
+    'editorconfig/editorconfig-vim',
+    config = function()
+      require('plugins/config/editorconfig-vim')
+    end
+  },
+
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require('plugins/config/nvim-lspconfig')
+    end
   },
 
   {
@@ -49,17 +59,26 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('plugins/config/mason')
+    end
   },
 
   {
-    "neovim/nvim-lspconfig",
-  },
-  {
     "hrsh7th/nvim-cmp",
+    config = function()
+      require('plugins/config/nvim-cmp')
+    end
   },
     {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
     cmd = "Telescope",
+    config = function()
+      require('plugins/config/telescope')
+    end
   },
 }
