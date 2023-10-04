@@ -1,4 +1,2 @@
-from torch import cuda,nn
-
-
-
+from torch import cuda
+cuda.is

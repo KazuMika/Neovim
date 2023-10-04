@@ -5,6 +5,8 @@ return {
 
 
   -- call dein#add('nvim-telescope/telescope-file-browser.nvim')
+  { 'nvim-lua/plenary.nvim'
+  },
   { 'Shougo/deoplete.nvim',
     config = function()
       require('plugins/config/deoplete')
@@ -39,6 +41,14 @@ return {
       require('plugins/config/supertab')
     end
   },
+  { "rebelot/kanagawa.nvim",
+    lazy = true,
+    priority = 10000,
+    config = function()
+      require('plugins/config/kanagawa')
+      vim.cmd[[colorscheme kangawa]]
+    end
+  },
 
   ----------------------------------- # to this points
   ---
@@ -48,6 +58,7 @@ return {
     opts = {},
     config = function()
       vim.cmd[[colorscheme tokyonight]]
+      require('plugins/config/tokyonight')
     end
   },
   { 'kien/ctrlp.vim',
@@ -55,8 +66,9 @@ return {
       require('plugins/config/ctrlp')
     end
   },
-  { 
-    'blueshirts/darcula',
+  { 'blueshirts/darcula',
+    lazy = true,
+    priority = 10000,
     config = function()
       vim.cmd([[colorscheme darcula]])
     end
@@ -120,6 +132,18 @@ return {
     "hrsh7th/nvim-cmp",
     config = function()
       require('plugins/config/nvim-cmp')
+    end
+  },
+  {
+      "nvim-treesitter/nvim-treesitter",
+      config = function()
+        require('plugins/config/nvim-treesitter')
+      end
+  },
+  {
+      'nvim-telescope/telescope-fzf-native.nvim', build = 'make' ,
+    config = function()
+      require('plugins/config/telescope-fzf-native')
     end
   },
     {

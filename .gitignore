@@ -10,3 +10,5 @@ after
 .lua.back2/
 .lua.back3/
 *.py
+init2.vim
+init.vim
