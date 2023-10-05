@@ -1,2 +1,3 @@
 from torch import cuda
-cuda.is
+import torch.nn as nn
+nn.Conv2d(

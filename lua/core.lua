@@ -1,49 +1,63 @@
 -- load lazy.nvim
+-- 
 -- encoding
+local g = vim.g
+local map = vim.keymap.set
+local o = vim.o
+-- local autocmd = vim.api.nvim_create_autocmd 
 vim.o.encoding = 'utf-8'
 vim.scriptencoding = 'utf-8'
 
 -- visual
-vim.o.ambiwidth = 'double'
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-vim.o.autoindent = true
-vim.o.smartindent = true
+o.ambiwidth = 'double'
+o.tabstop = 4
+o.softtabstop = 4
+o.shiftwidth = 4
+o.expandtab = true
+o.autoindent = true
+o.smartindent = true
 
-vim.o.visualbell = true
-vim.o.number = true
-vim.o.showmatch = true
-vim.o.matchtime = 1
+o.number = true
+o.showmatch = true
+o.matchtime = 1
 
--- search
-vim.o.incsearch = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.hlsearch = true
+o.incsearch = true
+o.ignorecase = true
+o.smartcase = true
+o.hlsearch = true
 
--- manipulation
-vim.g.mapleader = ' '
+g.mapleader = ' '
 vim.opt.clipboard:append{'unnamedplus'}
-vim.o.ttimeout = true
-vim.o.ttimeoutlen = 50
+o.ttimeout = true
+o.ttimeoutlen = 50
 
-vim.o.undofile = true
-vim.o.undodir = vim.fn.stdpath('cache') .. '/undo'
+o.undofile = true
+o.undodir = vim.fn.stdpath('cache') .. '/undo'
 
--- floaterm
-local g = vim.g
-g.floaterm_width = 85
-g.floaterm_height = 52
-g.floaterm_wintype = 'float'
-g.floaterm_position = 'topright'
+o.tabstop=4
+o.shiftwidth=4
+o.smarttab = true
+o.expandtab = true
+o.ignorecase = true
+o.incsearch = true
+o.scrolloff=8
+o.wildmenu = true
+o.autochdir = true
+o.number = true
+-- o.mouse=a
+o.autoread = true
+o.tw=0
+o.laststatus=2
+o.showmatch =  true
+-- o.whichwrap=b,s,[,],<,>
+-- o.backspace=indent,eol,start
+o.list = true
+-- o.listchars=trail:.
+o.timeoutlen=200
+
+-- autocmd FileType text setlocal textwidth=0
 
 -- ctrlp
-g.ctrlp_use_caching = 1
---g.ctrlp_cache_dir = 
-g.ctrlp_clear_cache_on_exit = 0
-
 
 g.ale_fix_on_save = 1
 g.ale_lint_on_text_changed = 'never'
@@ -56,8 +70,8 @@ g.ale_echo_msg_format = '[%linter%]%code: %%s'
 
 
 g.virtualenv_auto_activate = 1
-g.python3_host_prog = '/Users/quantan/.pyenv/versions/global3.10/bin/python3.10'
-g.python_host_prog = '/Users/quantan/.pyenv/versions/global3.10/bin/python3.10'
+g.python3_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
+g.python_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
 g.syntastic_python_flake8_args='--ignore=E501'
 
 
@@ -88,38 +102,24 @@ g.syntastic_python_flake8_args='--ignore=E501'
 
 
 -- key mapping
-local map = vim.keymap.set
 g.mapleader = ","
 map("i", "jj", "<ESC>",  { silent = true, desc = "jj to ESC" })
 map("i", "zz", "<ESC>zza",  { silent = true})
--- map("i", ";", ":",{noremap = true})
--- map("i", ":", ";",{noremap = true})
--- map("n", ";", ":",{noremap = true})
--- map("n", ":", ";",{noremap = true})
+map("i", ";", ":",{noremap = true})
+map("i", ":", ";",{noremap = true})
+map("n", ";", ":",{noremap = true})
+map("n", ":", ";",{noremap = true})
 map("i", "-", "_",{noremap = true})
 map("i", "_", "-",{noremap = true})
 map("i", "<C-o>", "<ESC>o",{noremap = true})
 map("i", "<C-a>", "<ESC>A",{noremap = true})
-map("n", "<leader>w", ":w",{noremap = true})
-map("n", "<leader>a", ":qa!",{noremap = true})
+map("n", "<leader>w", ":w<cr>",{noremap = true})
+map("n", "<leader>a", ":qa!<cr>",{noremap = true})
 map("n", "<leader>e", "<cmd>enew<cr>",{noremap = true})
 map("n", "tt", "<cmd>tabnew<cr>",{noremap = true})
 map("n", "th", "<cmd>tabfirst<cr>",{noremap = true})
 map("n", "tj", "<cmd>tabprev<cr>",{noremap = true})
 map("n", "tk", "<cmd>tabnext<cr>",{noremap = true})
 map("n", "tl", "<cmd>tablast<cr>",{noremap = true})
-map("n", "dn", "<cmd>FloatermNew<cr>",{noremap = true})
-map("n", "dk", "<cmd>FloatermNext<cr>",{noremap = true})
-map("n", "df", "<cmd>FloatermToggle<cr>",{noremap = true})
-map("n", "<leader>,", "<cmd>CtrlPMRU<cr>",{noremap = true})
-map("n", "<leader>f", "<cmd>CtrlP<cr>",{noremap = true})
-map("n", "<leader>b", "<cmd>CtrlPBuffer<cr>",{noremap = true})
-map("n", "<C-k>", "<Plug>(ale_previous_warp)<cr>",{silent = true})
-map("n", "<C-j>", "<Plug>(ale_next_warp)<cr>",{silent = true})
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set("n", "<C-n>", "<cmd> NvimTreeToggle <CR>")
+vim.cmd([[ tmap <Esc> <c-\><c-n> ]]) 
+map("n", "<leader>cd", "<cmd>cd %:h <CR>",{noremap = true})

@@ -1,4 +1,3 @@
-
 return {
 
   ----------------------------------- # from here
@@ -18,11 +17,14 @@ return {
   },
   { 'Shougo/neosnippet.vim',
   },
-
+ 
   { 'Shougo/neosnippet-snippets',
   },
   { 'w0rp/ale',
   },
+  { 'jiangmiao/auto-pairs',
+  },
+
   {'akinsho/toggleterm.nvim', 
     version = "*", 
     config = true,
@@ -30,7 +32,7 @@ return {
       require('plugins/config/toggleterm')
     end
   },
-
+ 
   { 'voldikss/vim-floaterm',
     config = function()
       require('plugins/config/vim-floaterm')
@@ -159,5 +161,15 @@ return {
     config = function()
       require('plugins/config/telescope-frecency')
     end
+  },
+  {
+   "lukas-reineke/indent-blankline.nvim",
+    version = "2.20.7",
+    opts = function()
+      return require("plugins/config/others").blankline
+    end,
+    config = function(_, opts)
+      require("indent_blankline").setup(opts)
+    end,
   },
 }
