@@ -94,12 +94,12 @@ return {
     end
   },
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require('plugins/config/nvim-lspconfig')
-    end
-  },
+  -- {
+  --  "neovim/nvim-lspconfig",
+  --  config = function()
+  --    require('plugins/config/nvim-lspconfig')
+  --  end
+  --},
 
   {
     'nvim-lualine/lualine.nvim',
@@ -140,13 +140,22 @@ return {
       require('plugins/config/mason')
     end
   },
+  -- {
+  -- 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  -- },
+  -- {
+  -- 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  -- },
+  -- {
+  -- 'L3MON4D3/LuaSnip' -- Snippets plugin
+  -- },
 
-  {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      require('plugins/config/nvim-cmp')
-    end
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   config = function()
+  --     require('plugins/config/nvim-cmp')
+  --   end
+  -- },
   {
       "nvim-treesitter/nvim-treesitter",
       config = function()
@@ -168,11 +177,18 @@ return {
       require('plugins/config/telescope')
     end
   },
-  { 'nvim-telescope/telescope-frecency.nvim',
-    config = function()
-      require('plugins/config/telescope-frecency')
-    end
+  {
+      'nvim-telescope/telescope-frecency.nvim',
+      config = function()
+          require('plugins/config/telescope-frecency')
+      end
   },
+  -- {
+  --     'williamboman/mason-lspconfig.nvim',
+  --   config = function()
+  --     require('plugins/config/mason-lspconfig')
+  --   end
+  -- },
 --   {
 --    "lukas-reineke/indent-blankline.nvim",
 --     version = "2.20.7",
