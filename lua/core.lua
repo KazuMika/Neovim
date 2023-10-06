@@ -58,27 +58,59 @@ o.timeoutlen=200
 -- autocmd FileType text setlocal textwidth=0
 
 -- ctrlp
-
-g.ale_fix_on_save = 1
-g.ale_lint_on_text_changed = 'never'
-g.ale_lint_on_insert_leave = 0
-
-g.ale_sign_error = '.'
-g.ale_sign_warning = '.'
-g.ale_echo_msg_format = '[%linter%]%code: %%s'
-
-g.ale_linters = {python='flake8'}
-
-g.ale_fixers = {python='autopep8'}
-
-
-
-g.virtualenv_auto_activate = 1
-g.python3_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
-g.python_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
-g.syntastic_python_flake8_args='--ignore=E501'
+--
+--
+-- g.ale_fix_on_save = 1
+-- g.ale_lint_on_text_changed = 'never'
+-- g.ale_lint_on_insert_leave = 0
+-- 
+-- g.ale_sign_error = '.'
+-- g.ale_sign_warning = '.'
+-- g.ale_echo_msg_format = '[%linter%]%code: %%s'
+-- 
+-- g.ale_linters = {python='flake8'}
+-- 
+-- g.ale_fixers = {python='autopep8'}
+-- g.virtualenv_auto_activate = 1
+-- g.python3_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
+-- g.python_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
+-- g.syntastic_python_flake8_args='--ignore=E501'
 
 vim.cmd([[
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+  let g:ale_fix_on_save = 1
+  " Write this in your vimrc file
+  let g:ale_lint_on_text_changed = 'never'
+  let g:ale_lint_on_insert_leave = 0
+  " You can disable this option too
+  " if you don't want linters to run on opening a file
+  
+  let g:ale_sign_error = '.'
+  let g:ale_sign_warning = '.'
+  let g:airline#extensions#ale#open_lnum_symbol = '('
+  let g:airline#extensions#ale#close_lnum_symbol = ')'
+  let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+  
+  nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+  nmap <silent> <C-j> <Plug>(ale_next_wrap)
+  
+  let g:ale_linters = {
+      \ 'python': ['flake8'],
+      \}
+  
+  
+  let g:ale_fixers = {
+  \   'python': ['autopep8'],
+  \   'javascript': ['eslint'],
+  \}
+
+  let g:virtualenv_auto_activate = 1
+  let g:python3_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
+  let g:python_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
+  let g:syntastic_python_flake8_args='--ignore=E501'
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_completion_start_length = 1
   autocmd FileType python setlocal completeopt-=preview
@@ -102,29 +134,6 @@ vim.cmd([[
 let g:airline#extensions#tabline#enabled = 1 " タブラインを表示
 
 ]])
---g.deoplete.enable_at_startup = 1
---g.deoplete.auto_completion_start_length = 1
----- autocmd FileType python setlocal completeopt-=preview
----- autocmd FileType python setlocal omnifunc=jedi#completions
---g.SuperTabContextDefaultCompletionType = "context"
---g.SuperTabDefaultCompletionType = "<c-n>"
---g.
---g.deoplete.sources.jedi.server_timeout=100
---g.deoplete.sources.jedi.statement_length=100
---g.jedi.completions_enabled = 0
---g.jedi.force_py_version = 3 
---g.jedi.popup_on_dot = 1
---g.
---g.jedi.goto_command = ""
---g.jedi.goto_assignments_command = ""
---g.jedi.goto_stubs_command = ""
---g.jedi.goto_definitions_command = ""
---g.jedi.documentation_command = "K"
---g.jedi.usages_command = ""
---g.jedi.completions_command = ""
---g.jedi.rename_command = ""
---g.jedi.rename_command_keep_name = ""
-
 
 
 
