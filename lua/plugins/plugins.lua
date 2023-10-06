@@ -44,16 +44,27 @@ return {
     end
   },
   { "rebelot/kanagawa.nvim",
-    lazy = true,
-    priority = 10000,
+    name = "kanagawa",
+    lazy = false,
+    priority = 100,
     config = function()
       require('plugins/config/kanagawa')
-      vim.cmd[[colorscheme kangawa]]
-    end
+      vim.cmd[[colorscheme kanagawa]]
+  end
   },
 
   ----------------------------------- # to this points
   ---
+  { "catppuccin/nvim", 
+    name = "catppuccin",
+    lazy = false,
+    priority = 250,
+    opts = {},
+    config = function()
+      vim.cmd[[colorscheme catppuccin-mocha]]
+      require('plugins/config/catppuccin')
+    end
+  },
   { "folke/tokyonight.nvim",
     lazy = false,
     priority = 500,

@@ -35,6 +35,10 @@ require("nvim-tree").setup {
     side = "left",
     width = 30,
     preserve_window_proportions = true,
+
+
+
+
   },
   git = {
     enable = false,
