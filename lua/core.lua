@@ -151,3 +151,7 @@ map("n", "tl", "<cmd>tablast<cr>",{noremap = true})
 vim.cmd([[ tmap <Esc> <c-\><c-n> ]]) 
 map("n", "<leader>cd", "<cmd>cd %:h <CR>",{noremap = true})
 map("i", "<C-f>", "<Right>",{noremap = true})
+
+lvim.builtin.nvimtree.setup.view.mappings.list = { 
+  {key = "f", action = "" },
+}
