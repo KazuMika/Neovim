@@ -78,7 +78,30 @@ g.python3_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
 g.python_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
 g.syntastic_python_flake8_args='--ignore=E501'
 
+vim.cmd([[
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_completion_start_length = 1
+  autocmd FileType python setlocal completeopt-=preview
+  autocmd FileType python setlocal omnifunc=jedi#completions
+  let g:SuperTabContextDefaultCompletionType = "context"
+  let g:SuperTabDefaultCompletionType = "<c-n>"
+  let g:deoplete#sources#jedi#server_timeout=100
+  let g:deoplete#sources#jedi#statement_length=100
+  let g:jedi#completions_enabled = 0
+  let g:jedi#force_py_version = 3 
+  let g:jedi#popup_on_dot = 1
+  let g:jedi#goto_command = ""
+  let g:jedi#goto_assignments_command = ""
+  let g:jedi#goto_stubs_command = ""
+  let g:jedi#goto_definitions_command = ""
+  let g:jedi#documentation_command = "K"
+  let g:jedi#usages_command = ""
+  let g:jedi#completions_command = ""
+  let g:jedi#rename_command = ""
+  let g:jedi#rename_command_keep_name = ""
+let g:airline#extensions#tabline#enabled = 1 " タブラインを表示
 
+]])
 --g.deoplete.enable_at_startup = 1
 --g.deoplete.auto_completion_start_length = 1
 ---- autocmd FileType python setlocal completeopt-=preview
