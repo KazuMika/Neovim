@@ -162,14 +162,14 @@ return {
       require('plugins/config/telescope-frecency')
     end
   },
-  {
-   "lukas-reineke/indent-blankline.nvim",
-    version = "2.20.7",
-    opts = function()
-      return require("plugins/config/others").blankline
-    end,
-    config = function(_, opts)
-      require("indent_blankline").setup(opts)
-    end,
-  },
+  -- {
+  --  "lukas-reineke/indent-blankline.nvim",
+  --   version = "2.20.7",
+  --   opts = function()
+  --     return require("plugins/config/others").blankline
+  --   end,
+  --   config = function(_, opts)
+  --     require("indent_blankline").setup(opts)
+  --   end,
+  -- },
 }
