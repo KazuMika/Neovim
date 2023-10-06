@@ -67,6 +67,10 @@ g.ale_sign_error = '.'
 g.ale_sign_warning = '.'
 g.ale_echo_msg_format = '[%linter%]%code: %%s'
 
+g.ale_linters = {python='flake8'}
+
+g.ale_fixers = {python='autopep8'}
+
 
 
 g.virtualenv_auto_activate = 1
