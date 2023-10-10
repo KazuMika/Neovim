@@ -108,8 +108,8 @@ vim.cmd([[
   \}
 
   let g:virtualenv_auto_activate = 1
-  let g:python3_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
-  let g:python_host_prog = '/home/k.mikami/.pyenv/versions/global310/bin/python3.10'
+  let g:python3_host_prog = '/home/mikami/.pyenv/versions/global310/bin/python3.10'
+  let g:python_host_prog = '/home/mikami/.pyenv/versions/global310/bin/python3.10'
   let g:syntastic_python_flake8_args='--ignore=E501'
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#auto_completion_start_length = 1
