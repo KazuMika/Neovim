@@ -17,7 +17,7 @@ return {
   },
   { 'Shougo/neosnippet.vim',
   },
- 
+  
   { 'Shougo/neosnippet-snippets',
   },
   { 'w0rp/ale',
@@ -55,7 +55,7 @@ return {
 
   ----------------------------------- # to this points
   ---
-  { "catppuccin/nvim", 
+  { "catppuccin/nvim",
     name = "catppuccin",
     lazy = false,
     priority = 250,
@@ -79,27 +79,12 @@ return {
       require('plugins/config/ctrlp')
     end
   },
-  { 'blueshirts/darcula',
-    lazy = true,
-    priority = 10000,
-    config = function()
-      vim.cmd([[colorscheme darcula]])
-    end
-  },
-
   {
     'editorconfig/editorconfig-vim',
     config = function()
       require('plugins/config/editorconfig-vim')
     end
   },
-
-  -- {
-  --  "neovim/nvim-lspconfig",
-  --  config = function()
-  --    require('plugins/config/nvim-lspconfig')
-  --  end
-  --},
 
   {
     'nvim-lualine/lualine.nvim',
@@ -131,6 +116,40 @@ return {
   },
 
   {
+      "nvim-treesitter/nvim-treesitter",
+      config = function()
+        require('plugins/config/nvim-treesitter')
+      end
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.3",
+    dependencies = {  'nvim-lua/plenary.nvim',"nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },},
+    cmd = "Telescope",
+  },
+  {
+      'nvim-telescope/telescope-fzf-native.nvim', build = 'make' ,
+  },
+  {
+      'nvim-telescope/telescope-frecency.nvim',
+  },
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
+    config = function()
+      require('plugins/config/telescope')
+    end
+  },
+
+-- lsp-condig 
+-- -------------------------
+   {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require('plugins/config/nvim-lspconfig')
+    end
+  },
+
+  {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
     dependencies = {
@@ -140,55 +159,27 @@ return {
       require('plugins/config/mason')
     end
   },
-  -- {
-  -- 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  -- },
-  -- {
-  -- 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  -- },
-  -- {
-  -- 'L3MON4D3/LuaSnip' -- Snippets plugin
-  -- },
-
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   config = function()
-  --     require('plugins/config/nvim-cmp')
-  --   end
-  -- },
   {
-      "nvim-treesitter/nvim-treesitter",
-      config = function()
-        require('plugins/config/nvim-treesitter')
-      end
-  },
-  {
-      'nvim-telescope/telescope-fzf-native.nvim', build = 'make' ,
+      'williamboman/mason-lspconfig.nvim',
     config = function()
-      require('plugins/config/telescope-fzf-native')
-    end
-  },
-    {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.1.3",
-    dependencies = {  'nvim-lua/plenary.nvim',"nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },},
-    cmd = "Telescope",
-    config = function()
-      require('plugins/config/telescope')
+      require('plugins/config/mason-lspconfig')
     end
   },
   {
-      'nvim-telescope/telescope-frecency.nvim',
-      config = function()
-          require('plugins/config/telescope-frecency')
-      end
+    "hrsh7th/nvim-cmp",
+    config = function()
+      require('plugins/config/nvim-cmp')
+    end
   },
-  -- {
-  --     'williamboman/mason-lspconfig.nvim',
-  --   config = function()
-  --     require('plugins/config/mason-lspconfig')
-  --   end
-  -- },
+  {
+    'hrsh7th/vim-vsnip'
+  },
+  {
+    "hrsh7th/cmp-nvim-lsp",
+    -- config = function()
+    --   require('plugins/config/lsp')
+    -- end
+  },
 --   {
 --    "lukas-reineke/indent-blankline.nvim",
 --     version = "2.20.7",

@@ -3,7 +3,6 @@ if not status_ok then
   return
 end
 
-local actions = require "telescope.actions"
 
 telescope.setup {
   defaults = {
@@ -59,6 +58,10 @@ telescope.setup {
 
   extensions_list = { "themes", "terms", "fzf" },
   extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+      }
+    },
     fzf = {
       fuzzy = true,
       override_generic_sorter = true,
@@ -67,6 +70,10 @@ telescope.setup {
     },
   },
 }
+
+
+require("telescope").load_extension("ui-select")
+require("telescope").load_extension("ui-select")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
