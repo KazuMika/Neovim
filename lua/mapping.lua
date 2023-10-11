@@ -1,0 +1,28 @@
+-- key mapping
+local map = vim.keymap.set
+local g = vim.g
+g.mapleader = ","
+map("i", "jj", "<ESC>",  { silent = true, desc = "jj to ESC" })
+map("i", "zz", "<ESC>zza",  { silent = true})
+map("i", ";", ":",{noremap = true})
+map("i", ":", ";",{noremap = true})
+map("n", ";", ":",{noremap = true})
+map("n", ":", ";",{noremap = true})
+map("i", "-", "_",{noremap = true})
+map("i", "_", "-",{noremap = true})
+map("i", "<C-o>", "<ESC>o",{noremap = true})
+map("i", "<C-a>", "<ESC>A",{noremap = true})
+map("n", "<leader>w", ":w<cr>",{noremap = true})
+map("n", "<leader>a", ":qa!<cr>",{noremap = true})
+map("n", "<leader>e", "<cmd>enew<cr>",{noremap = true})
+map("n", "tt", "<cmd>tabnew<cr>",{noremap = true})
+map("n", "th", "<cmd>tabfirst<cr>",{noremap = true})
+map("n", "tj", "<cmd>tabprev<cr>",{noremap = true})
+map("n", "tk", "<cmd>tabnext<cr>",{noremap = true})
+map("n", "tl", "<cmd>tablast<cr>",{noremap = true})
+vim.cmd([[ tmap <Esc> <c-\><c-n> ]]) 
+map("n", "<leader>cd", "<cmd>cd %:h <CR>",{noremap = true})
+map("i", "<C-f>", "<Right>",{noremap = true})
+map('n', '<leader>tf', "<cmd>Telescope find_files<cr>", {noremap = true})
+map('n', '<leader>tl', "<cmd>Telescope live_grep<cr>", {noremap = true})
+map('n', '<leader>tb', "<cmd>Telescope bufferes<cr>", {noremap = true})

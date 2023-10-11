@@ -1,8 +1,6 @@
 -- load lazy.nvim
 -- 
 -- encoding
-local g = vim.g
-local map = vim.keymap.set
 local o = vim.o
 -- local autocmd = vim.api.nvim_create_autocmd 
 vim.o.encoding = 'utf-8'
@@ -26,7 +24,6 @@ o.ignorecase = true
 o.smartcase = true
 o.hlsearch = true
 
-g.mapleader = ' '
 vim.opt.clipboard:append{'unnamedplus'}
 o.ttimeout = true
 o.ttimeoutlen = 50
@@ -44,37 +41,13 @@ o.scrolloff=8
 o.wildmenu = true
 o.autochdir = true
 o.number = true
--- o.mouse=a
 o.autoread = true
 o.tw=0
 o.laststatus=2
 o.showmatch =  true
--- o.whichwrap=b,s,[,],<,>
--- o.backspace=indent,eol,start
 o.list = true
--- o.listchars=trail:.
 o.timeoutlen=200
 
--- autocmd FileType text setlocal textwidth=0
-
--- ctrlp
---
---
--- g.ale_fix_on_save = 1
--- g.ale_lint_on_text_changed = 'never'
--- g.ale_lint_on_insert_leave = 0
--- 
--- g.ale_sign_error = '.'
--- g.ale_sign_warning = '.'
--- g.ale_echo_msg_format = '[%linter%]%code: %%s'
--- 
--- g.ale_linters = {python='flake8'}
--- 
--- g.ale_fixers = {python='autopep8'}
--- g.virtualenv_auto_activate = 1
--- g.python3_host_prog = '$HOME/.pyenv/versions/global310/bin/python3.10'
--- g.python_host_prog = '$HOME/.pyenv/versions/global310/bin/python3.10'
--- g.syntastic_python_flake8_args='--ignore=E501'
 
 vim.cmd([[
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -82,26 +55,19 @@ vim.cmd([[
   xmap <C-k>     <Plug>(neosnippet_expand_target)
 
   let g:ale_fix_on_save = 1
-  " Write this in your vimrc file
   let g:ale_lint_on_text_changed = 'never'
   let g:ale_lint_on_insert_leave = 0
-  " You can disable this option too
-  " if you don't want linters to run on opening a file
-  
   let g:ale_sign_error = '.'
   let g:ale_sign_warning = '.'
   let g:airline#extensions#ale#open_lnum_symbol = '('
   let g:airline#extensions#ale#close_lnum_symbol = ')'
   let g:ale_echo_msg_format = '[%linter%]%code: %%s'
-  
   nmap <silent> <C-k> <Plug>(ale_previous_wrap)
   nmap <silent> <C-j> <Plug>(ale_next_wrap)
-  
+
   let g:ale_linters = {
       \ 'python': ['flake8'],
       \}
-  
-  
   let g:ale_fixers = {
   \   'python': ['autopep8'],
   \   'javascript': ['eslint'],
@@ -131,33 +97,7 @@ vim.cmd([[
   let g:jedi#completions_command = ""
   let g:jedi#rename_command = ""
   let g:jedi#rename_command_keep_name = ""
-let g:airline#extensions#tabline#enabled = 1 " タブラインを表示
-
 ]])
 
 
-
--- key mapping
-g.mapleader = ","
-map("i", "jj", "<ESC>",  { silent = true, desc = "jj to ESC" })
-map("i", "zz", "<ESC>zza",  { silent = true})
-map("i", ";", ":",{noremap = true})
-map("i", ":", ";",{noremap = true})
-map("n", ";", ":",{noremap = true})
-map("n", ":", ";",{noremap = true})
-map("i", "-", "_",{noremap = true})
-map("i", "_", "-",{noremap = true})
-map("i", "<C-o>", "<ESC>o",{noremap = true})
-map("i", "<C-a>", "<ESC>A",{noremap = true})
-map("n", "<leader>w", ":w<cr>",{noremap = true})
-map("n", "<leader>a", ":qa!<cr>",{noremap = true})
-map("n", "<leader>e", "<cmd>enew<cr>",{noremap = true})
-map("n", "tt", "<cmd>tabnew<cr>",{noremap = true})
-map("n", "th", "<cmd>tabfirst<cr>",{noremap = true})
-map("n", "tj", "<cmd>tabprev<cr>",{noremap = true})
-map("n", "tk", "<cmd>tabnext<cr>",{noremap = true})
-map("n", "tl", "<cmd>tablast<cr>",{noremap = true})
-vim.cmd([[ tmap <Esc> <c-\><c-n> ]]) 
-map("n", "<leader>cd", "<cmd>cd %:h <CR>",{noremap = true})
-map("i", "<C-f>", "<Right>",{noremap = true})
 
