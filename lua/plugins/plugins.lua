@@ -39,7 +39,6 @@ return {
       require('plugins/config/ctrlp')
     end
   },
-
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -68,7 +67,6 @@ return {
       require('plugins/config/nvim-tree')
     end
   },
-
   {
       "nvim-treesitter/nvim-treesitter",
       config = function()
@@ -77,12 +75,14 @@ return {
   },
   -- telescope confing
   {
-      'nvim-telescope/telescope-fzf-native.nvim', build = 'make' ,
+     'nvim-telescope/telescope-fzf-native.nvim', build = 'make' ,
   },
   {
-      'nvim-telescope/telescope-frecency.nvim',
+    'nvim-telescope/telescope-frecency.nvim',
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
   },
-    {
+  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.3",
     dependencies = {  'nvim-lua/plenary.nvim',"nvim-treesitter/nvim-treesitter", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },},
@@ -90,6 +90,16 @@ return {
     config = function()
       require('plugins/config/telescope')
     end
+  },
+
+-- lsp-condig 
+
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
   },
   -- lsp config 
   -- {
@@ -116,16 +126,3 @@ return {
   -- },
 }
 
-  -- {
-  --   "hrsh7th/vim-vsnip"
-  -- },
---   {
---    "lukas-reineke/indent-blankline.nvim",
---     version = "2.20.7",
---     opts = function()
---       return require("plugins/config/others").blankline
---     end,
---     config = function(_, opts)
---       require("indent_blankline").setup(opts)
---     end,
---   },

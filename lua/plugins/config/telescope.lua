@@ -1,11 +1,4 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-  return
-end
-
-local actions = require "telescope.actions"
-
-telescope.setup {
+require("telescope").setup{
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -59,11 +52,11 @@ telescope.setup {
 
   extensions_list = { "themes", "terms", "fzf" },
   extensions = {
-      ["ui-select"] = {
+    ["ui-select"] = {
       require("telescope.themes").get_dropdown {
-        },
-      },
-      fzf = {
+      }
+    },
+    fzf = {
       fuzzy = true,
       override_generic_sorter = true,
       override_file_sorter = true,
@@ -71,6 +64,4 @@ telescope.setup {
     },
   },
 }
-
-local builtin = require('telescope.builtin')
-require('telescope.builtin').find_files(opt)
+require("telescope").load_extension("ui-select")
