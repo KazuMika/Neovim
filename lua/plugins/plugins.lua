@@ -79,6 +79,7 @@ return {
   },
   {
     'nvim-telescope/telescope-frecency.nvim',
+  },
   {
     'nvim-telescope/telescope-ui-select.nvim',
   },
