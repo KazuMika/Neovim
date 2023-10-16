@@ -3,6 +3,7 @@ return {
   { 'nvim-lua/plenary.nvim'
   },
 
+
   { "rebelot/kanagawa.nvim",
     name = "kanagawa",
     lazy = false,
@@ -10,7 +11,7 @@ return {
     config = function()
       require('plugins/config/kanagawa')
       vim.cmd[[colorscheme kanagawa]]
-  end
+    end
   },
   { 'Shougo/deoplete.nvim',
   },

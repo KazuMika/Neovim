@@ -47,6 +47,7 @@ o.laststatus=2
 o.showmatch =  true
 o.list = true
 o.timeoutlen=200
+o.swapfile = false
 
 
 vim.cmd([[
