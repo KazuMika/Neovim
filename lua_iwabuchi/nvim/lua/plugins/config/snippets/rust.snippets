@@ -1,0 +1,114 @@
+snippet _8
+	/*
+	 * FileName:        file
+	 * Author:          8ucchiman
+	 * CreatedDate:     2023-07-27 13:25:33
+	 * LastModified:    2023-01-23 14:15:07 +0900
+	 * Reference:       8ucchiman.jp
+	 * Description:     ---
+	 */
+
+snippet _8io_stdin
+	let mut value = String::new();
+	io::stdin().read_line(&mut value).expect("Failed to read line");
+
+snippet _8std_cmp
+	use std::cmp::Ordering;
+	match guess.cmp(&) {
+		Ordering::Less => println!("small"),
+		Ordering::Greater => println!("big"),
+		Ordering::Equal => {
+			println("equal");
+			break;
+		}
+	}
+
+snippet _8while_stdin
+	let guess: u32 = match guess.trim().parse() {
+		Ok(num) => num,
+		Err(_) => continue,
+	};
+
+snippet _8string2digits
+	strval.trim().parse().expect("Please type a number!");
+
+snippet _8struct
+	struct User {
+		username: String,
+		email: String,
+		sign_in_count: u64,
+		active: bool,
+	}
+
+snippet _8updatestruct
+	let user2 = User {
+		username: String::from("hoge"),
+		..user1,
+	};
+
+snippet _8tuplestruct
+	struct Color(i32, i32, i32);
+	let black = Color(0, 0, 0);
+	black.0;  // 参照
+
+snippet _8unitstruct
+	struct Unit;
+
+snippet _8calc
+	assert_eq!(10_u8.checked_add(20), Some(30));  	   // チェック付き演算
+	assert_eq!(100_u8.checked_addd(200), None);   	   // チェック付き演算
+	assert_eq!(100_u16.wrapping_mul(200), 20000); 	   // ラップ演算
+	assert_eq!(32760_i16.saturating_add(100), 32767);  // 飽和演算
+	assert_eq!(255_u8.overflowing_add(1), (1, true))   // オーバフロー演算
+
+snippet _8error01
+	println!("{}", (-4).abs())      // メソッドを呼び出す場合、オブジェクトの型を明示する必要がある。
+	println!("{}", (-4_i32)abs())
+
+snippet _8arrayrange
+    let a: [usize; 100] = core::array::from_fn(|i| i+1);    // 1から100まで
+
+snippet _8basic_if01
+	// 3.5.1.2 let文内でif式を使う
+	let number = if true {
+		5
+	} else {
+		6
+	};
+
+snippet _8basic_array
+	let lazy_poco: [u32; 5] = [1, 2, 3, 4, 5];
+	let txas = ["amecano", "boyd"];
+	let mut sieve = [true; 10000];   // 10000のtrue配列
+
+snippet _8basic_vec
+	let mut primes = vec![2, 3, 5, 7];
+	let mut pal = Vec::new();
+	let v: Vec<i32> = (0..5).collect();  // 型は基本的に必要
+
+snippet _8basic_loop
+	// 3.5.2.1 loopでコードを繰り返す
+	loop {
+		println!("8ucchiman was here!");
+	}
+
+snippet _8basic_for01
+	// 3.5.2.3 forでコレクションを覗き見る
+	let a = [10, 20, 30, 40, 50];
+	for element in a.iter() {
+		println!("the vaue is: {}", element);
+	}
+
+snippet _8basic_for02k
+	// 3.5.2.3 forでコレクションを覗き見る
+	for number in (1..4).rev() {
+		println!("{}!", number);
+	}
+
+snippet _8const
+	// 定数の場合は、必ず型を指定する必要がある
+	// 定数は関数の呼び出しや実行時に評価される値にはセットできない
+	const value:i32 = 4;
+
+snippet _8basic_literal2string
+	let s = String::from("8ucchiman");

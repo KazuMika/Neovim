@@ -1,0 +1,123 @@
+snippet _8
+	#!/bin/zsh
+	#
+	# FileName:     file
+	# Author:       8ucchiman
+	# CreatedDate:  2023-07-27 13:10:49
+	# LastModified: 2023-01-23 14:11:45 +0900
+	# Reference:    8ucchiman.jp
+	# Description:  ---
+	#
+
+snippet _8:getopts
+	function _usage() {
+	    echo "Usage: $0 -u username -n image_name -f dockerfile"
+	    exit 1
+	}
+	
+	if [[ $# = 0 ]]
+	then
+	    echo No arguments or options
+	    exit 1
+	fi
+	
+	while getopts :ab:c: OPT
+	do
+	    case $OPT in
+	        a) flag=1;;
+	        b) b=$OPTARG;;
+	        c) c=$OPTARG;;
+	        :|\?) _usage;;
+	    esac
+	done
+	if [[ ! -z $flag ]]
+	then
+	    printf "stand flag\n"
+	fi
+	
+	return
+	
+	#
+	# a:bc:
+	# -> aとcオプションは引数
+	# -> command -a hoge -b -c geho
+	# :a:bc:
+	# -> 未定義オプションの場合、?として処理
+	#
+
+snippet _8:randomgenerator
+	# 10個の乱数を生成
+	for i in $(seq 1 10); do
+		echo $(RANDOME)
+	done
+
+snippet _8:readline
+	while read LINE; do
+		#...
+	done< <(cat txt_info/val.txt)
+
+snippet _8:if:str
+	# https://tanakatarou.tech/1699/
+	if [[ $file == "hoge" ]]; then
+		#...
+	fi
+
+snippet _8:if:file:exist_file_with_oneline
+	# https://tanakatarou.tech/1699/
+	[ -e file ]; echo $?; # or [ -a file ];
+
+snippet _8:if:dir:exist_dir_with_oneline
+	# https://tanakatarou.tech/1699/
+	[ -d dir/ ]; echo $?
+
+snippet _8:if:file:not_empty_file
+	# https://tanakatarou.tech/1699/
+	[ -s file ]; echo $?; # not empty file
+
+snippet _8:if:file:olderfile
+	# https://tanakatarou.tech/1699/
+	[ fileA -ot fileB ]; echo $?; # fileA older than fileB
+
+snippet _8:if:file:newerfile
+	# https://tanakatarou.tech/1699/
+	[ fileA -nt fileB ]; echo $?; # fileA newer than fileB
+
+snippet _8:if:str:regex
+	# https://tanakatarou.tech/1699/
+	[ fileA =~ "regex" ]; echo $?;
+
+snippet _8:function:func_lst
+	function function_lst () {
+	    echo "***********************************"
+	    echo "The following function is prepared."
+	    echo "***********************************"
+	    cat $1 | awk '/^function/ {printf "| %s\n", $2}'
+	    echo "***********************************"
+	}
+
+snippet _8:function:set_variables
+	typeset -A REPOS
+	
+	function set_variables () {
+	    BASE_DIR=$PWD
+	    GIT_DIR=$BASE_DIR/git
+	    REPOS=(jetson_containers https://github.com/dusty-nv/jetson-containers.git)
+	}
+
+snippet _8:if:str:check_variables
+	# https://ex1.m-yabe.com/archives/4548
+	str = ""
+	if [[ ! -n $str ]]; then
+		echo "empty"
+	fi
+
+snippet _8:regex:head
+	fileA="hoge"; [ fileA =~ "^h" ]; echo $?;
+
+snippet _8:regex:last
+	fileA="hoge"; [ fileA =~ "e$" ]; echo $?;
+
+snippet _8:array
+	typeset -A SUBMODULES;
+	SUBMODULES=(yolostereo3d https://github.com/)
+

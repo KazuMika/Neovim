@@ -1,0 +1,15 @@
+neofetch/
+ibus/
+matplotlib/
+htop/
+inkscape/
+pulse/
+gh/
+glab-cli/
+google-chrome/
+mimeapps.list
+libreoffice/
+eog/
+GIMP/
+ros.org/
+nvim/lazy-lock.json

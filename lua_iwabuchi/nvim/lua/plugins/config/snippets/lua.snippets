@@ -1,0 +1,285 @@
+snippet _8
+	#!/usr/bin/env lua
+	--
+	-- FileName:     lua
+	-- Author:       8ucchiman
+	-- Email:        8ucchiman@gmail.com
+	-- CreatedDate:  2023-07-27 13:26:39
+	-- LastModified: 2023-01-23 14:18:33 +0900
+	-- Reference:    https://stackoverflow.com/questions/73358168/where-can-i-check-my-neovim-lua-runtimepath
+	-- Description:  ---
+	--
+
+
+snippet fun
+	function ${1:name}(${2:params})
+		${0:$VISUAL}
+	end
+
+snippet upcase
+	local ${1:var} = '${1/.*/\U\0/g}'
+
+snippet choices
+	print('My favorite language is: ${1|JavaScript,Lua,Rust|}')
+
+snippet date
+	Current date is `strftime('%c')`
+
+# Custom tabstop order
+snippet repeat
+	repeat
+		${2:what}
+	while ${1:condition}
+
+
+snippet _8basics_constructor
+	--
+	-- ref http://www.nct9.ne.jp/m_hiroi/light/lua05.html
+	--
+	Foo = {}
+	function Foo.new(a, b)
+		return {
+			a = a,
+			b = b,
+			get_a = function(self) return self.a end,
+			get_b = function(self) return self.b end,
+			set_a = function(self, x) self.a = x end,
+			set_b = function(self, x) self.b = x end
+		}
+	end
+
+snippet _8basics_class
+	--
+	-- ref http://www.nct9.ne.jp/m_hiroi/light/lua05.html
+	--
+	Foo = {}
+	function Foo.new(a, b)
+		local function get_a(self) return self.a end
+		local function get_b(self) return self.b end
+		local function set_a(self, x) self.a = x end
+		local function set_b(self, x) self.b = x end
+		return {
+			a = a,
+			b = b,
+			get_a = get_a,
+			get_b = get_b,
+			set_a = set_a,
+			set_b = set_b
+		}
+	end
+
+snippet _8basics_coroutine_minicompo
+	--
+	-- basics
+	-- ref: https://www.lua.org/pil/9.1.html
+	-- 最小構成
+	--
+	co = coroutine.create(function ()
+		print('hi')
+	end)
+
+	print(coroutine.status(co)) 	--> suspended
+	coroutine.resume(co)            --> hi
+	print(coroutine.status(co))     --> dead
+
+snippet _8basics_coroutine_yield
+	--
+	-- basics
+	-- ref: https://www.lua.org/pil/9.1.html
+	-- yield ... メインスレッドでcoスレッドを再生する際、yieldから始まる
+	--
+	co = coroutine.create(function ()
+		for i = 1, 10 do
+			print("co", i)
+			coroutine.yield()       -- yield allows a running coroutine to suspend its execution so that it can be resumed later.
+		end
+	end)
+
+	coroutine.resume(co)            --> co 1
+	coroutine.resume(co)            --> co 2
+	-- ..
+	coroutine.resume(co)            --> co 10
+	coroutine.resume(co)            -- prints nothing
+
+
+snippet _8basics_coroutine_arguments
+	--
+	-- basics
+	-- ref: https://www.lua.org/pil/9.1.html
+	-- 引数あり
+	co = coroutine.create(function (a, b, c)
+		print("co", a, b, c)
+	end)
+	coroutine.resume(co, 1, 2, 3)
+
+	co = coroutine.create(function (a, b)
+		coroutine.yield(a+b, a-b)
+	end)
+	print(coroutine.resume(co, 20, 10))  --> true 30 10
+
+	co = coroutine.create(function ()
+		print("co", coroutine.yield())
+	end)
+	coroutine.resume(co)
+	coroutine.resume(co, 4, 5)       --> co 4 5
+
+	co = coroutine.create(function ()
+		return 6, 7
+	end)
+	print(coroutine.resume(co))      --> co 6 7
+
+snippet _8producer_consumer
+	-- receive関数
+	-- @param prod: producer関数
+	-- @return value
+	--
+	-- receive関数はconsumer関数内で呼び出される
+	-- coroutine.resumeでyieldを呼び出す。
+	function receive (prod)
+      local status, value = coroutine.resume(prod)
+      return value
+    end
+    
+	-- send関数
+	-- @param x: 
+	--
+	-- send関数はprducer関数内で呼び出される
+	-- coroutine.yield
+    function send (x)
+      coroutine.yield(x)
+    end
+    
+    function producer ()
+      return coroutine.create(function ()
+        while true do
+          local x = io.read()     -- produce new value
+          send(x)
+        end
+      end)
+    end
+    
+    function filter (prod)
+      return coroutine.create(function ()
+        local line = 1
+        while true do
+          local x = receive(prod)   -- get new value
+          x = string.format("%5d %s", line, x)
+          send(x)      -- send it to consumer
+          line = line + 1
+        end
+      end)
+    end
+    
+    function consumer (prod)
+      while true do
+        local x = receive(prod)   -- get new value
+        io.write(x, "\n")          -- consume new value
+      end
+    end
+    p = producer()
+    f = filter(p)
+    consumer(f)
+
+
+snippet _8set
+	local Bucchiman = {}
+	Bucchiman.new = function()
+	  	local self = setmetatable({}, { __index = Bucchiman })
+	  	self.images = {}
+	  	self.default_options = {
+	    	wait_ms = 100,
+	    	direction = 'expand',
+	    	count = 3,
+	  	}
+	  	return self
+	end
+
+	function Bucchiman:setup()
+	  	vim.api.nvim_create_user_command('Bucchiman', function(options)
+	    	local opts = options.args == '' and {} or assert(loadstring('return ' .. options.args)())
+	    	-- self:start(opts)
+	  	end, { nargs = '?' })
+	end
+
+	local Bu = Bucchiman.new()
+
+	return {
+	  	bucchiman = Bu,
+	  	setup = function()
+	    	Bu:setup()
+	  	end,
+	}
+
+
+snippet _8floating_window
+	M.open_window = function ()
+	    local win, buf
+	    buf = vim.api.nvim_create_buf(false, true)
+	    local border_buf = vim.api.nvim_create_buf(false, true)   -- 空のバッファを作成
+	
+	    vim.api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
+	    vim.api.nvim_buf_set_option(buf, 'filetype', 'schedule')
+	
+	    local width = vim.api.nvim_get_option("columns")
+	    local height = vim.api.nvim_get_option("lines")
+	
+	    local win_height = math.ceil(height * 0.8 - 4)
+	    local win_width = math.ceil(width * 0.8)
+	    local row = math.ceil((height - win_height) / 2 - 1)
+	    local col = math.ceil((width - win_width) / 2)
+	
+	    local border_opts = {
+	        style = "minimal",
+	        relative = "editor",
+	        width = win_width + 2,
+	        height = win_height + 2,
+	        row = row - 1,
+	        col = col - 1
+	    }
+	
+	    local opts = {
+	        style = "minimal",
+	        relative = "editor",
+	        width = win_width,
+	        height = win_height,
+	        row = row,
+	        col = col
+	    }
+	
+	    local border_lines = { '╔' .. string.rep('═', win_width) .. '╗' }
+	    local middle_line = '║' .. string.rep(' ', win_width) .. '║'
+	    for i=1, win_height do
+	        table.insert(border_lines, middle_line)
+	    end
+	    table.insert(border_lines, '╚' .. string.rep('═', win_width) .. '╝')
+	    vim.api.nvim_buf_set_lines(border_buf, 0, -1, false, border_lines)    -- バッファの内容を書き換える
+	
+	    local border_win = vim.api.nvim_open_win(border_buf, true, border_opts)
+	    win = vim.api.nvim_open_win(buf, true, opts)
+	    vim.api.nvim_command('au BufWipeout <buffer> exe "silent bwipeout! "'..border_buf)
+	
+	    vim.api.nvim_win_set_option(win, 'cursorline', true)    -- windowハンドルを指定してウィンドウオプションを指定
+	
+	    vim.api.nvim_buf_set_lines(buf, 0, -1, false, { M.center('Schedule'), '', ''})
+	    vim.api.nvim_buf_add_highlight(buf, -1, 'ScheduleHeader', 0, 0, -1)
+	end
+	
+	M.center = function(str)
+	    local width = vim.api.nvim_win_get_width(0)
+	    local shift = math.floor(width / 2) - math.floor(string.len(str) / 2)
+	    return string.rep(' ', shift) .. str
+	end
+
+snippet _8basic_love
+	function love.load()
+	    number = 0
+	end
+
+	function love.update(dt)
+	    number = number+1
+	end
+
+	function love.draw()
+	    -- love.graphics.print(number)
+	    love.graphics.rectangle("fill", 600, 30, 200, 100)    -- upper left x, upper left y, width, height
+	end

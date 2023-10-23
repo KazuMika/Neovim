@@ -1,0 +1,111 @@
+snippet _8
+	#!/usr/bin/env python
+	# -*- coding: utf-8 -*-
+	#
+	# FileName:     file
+	# Author:       8ucchiman
+	# CreatedDate:  2023-07-27 13:18:37
+	# LastModified: 2023-02-18 14:28:37 +0900
+	# Reference:    8ucchiman.jp
+	# Description:  ---
+	#
+
+snippet _8argparse
+	def get_args():
+		"""
+			arguments
+				- log_dir
+				- log_file
+				- config_dir
+				- results_dir
+				- data_dir
+		"""
+		import argparse
+		base_parser = argparse.ArgumentParser(add_help=False)
+    	base_parser.add_argument('--log_dir', type=str, default="../logs", help="log directory specify")
+    	base_parser.add_argument('--log_file', type=str, default=make_date_log_directory(), help="log file specify")
+    	base_parser.add_argument('--config_dir', type=str, default="../params")
+    	base_parser.add_argument('--config_file', type=str, default="config.yaml")
+    	base_parser.add_argument('--results_dir', type=str, default="../results", help="results dir specify")
+    	base_parser.add_argument('--data_dir', type=str, default="../datas", help="data directory specify")
+    	# parser.add_argument('--method_name', type="str", default="make_date_log_directory", help="method name here in utils.py")
+
+    	# parser.add_argument('arg1')     # 必須の引数
+    	# parser.add_argument('-a', 'arg')    # 省略形
+    	# parser.add_argument('--flag', action='store_true')  # flag
+    	# parser.add_argument('--strlist', required=True, nargs="*", type=str, help='a list of strings') # --strlist hoge fuga geho
+    	# parser.add_argument('--method', type=str)
+    	# parser.add_argument('--fruit', type=str, default='apple', choices=['apple', 'banana'], required=True)
+    	# parser.add_argument('--address', type=lambda x: list(map(int, x.split('.'))), help="IP address") # --address 192.168.31.150 --> [192, 168, 31, 150]
+    	# parser.add_argument('--colors', nargs='*', required=True)
+		args = vars(base_parser.parse_args())
+		return args
+
+snippet _8figax
+	fig, ax = plt.subplots()
+
+snippet _8listlambda
+	hoge = list(map(lambda x: x+1, hoge))  # hogeの各要素に+1する
+
+snippet _8wrapper01
+	#
+	# ref: https://qiita.com/keishi04hrikzira/items/dd6ef7fcd67092c9baba
+	#
+	from functools import wraps
+	def deco(f):
+		@wraps(f, "__name__")
+		def wrapper(*args, **kwargs):
+			"""test"""
+			return f(*args, **kwargs)
+		return wrapper
+	@deco
+	def hoge():
+		""" sample """
+		pass
+
+	print(hoge.__name__)
+	# 出力: hoge
+	# __name__はwrapsで指定しているのでそのまま
+
+	print(hoge.__doc__)
+	# 出力: test
+	# __doc__はwrapsで指定しないので上書きされる
+
+snippet _8wrapper02
+	#
+	# ref: https://www.geeksforgeeks.org/function-wrappers-in-python/
+	#
+
+
+snippet _8basics_repl
+	#
+	# ref: https://codesolid.com/dunder-methods-in-python-the-ugliest-awesome-sauce/
+	#
+	class Point:
+		def __init__(self, x, y):
+			self.x = x
+			self.y = y
+
+		def __repr__(self):
+			return f"Point(x={self.x}, y={self.y})"
+
+	p = Point(10, 4)
+	print(p)        # Point(x=10, y=5)
+
+snippet _8timer_decorator
+	#
+	# Reference: gulliver, gutils.zip, gutils_time.py
+	# decorator
+	def timer(func):
+	    def wrapper(*args, **kwargs):
+	        before = time()
+	        rv = func(*args, **kwargs)
+	        after = time()
+	        print(f"[{func.__name__}] elapsed {after-before:.6f}")
+	        return rv
+	    return wrapper
+
+
+	@timer
+	def add(x, y):
+	    return x + y
