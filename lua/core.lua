@@ -73,6 +73,11 @@ vim.cmd([[
   \   'python': ['autopep8'],
   \   'javascript': ['eslint'],
   \}
+  let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|jpeg|png|jpg|csv|txt|)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 
   let g:virtualenv_auto_activate = 1
   let g:python3_host_prog = '$HOME/.pyenv/versions/global310/bin/python3.10'
