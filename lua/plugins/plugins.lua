@@ -94,15 +94,7 @@ return {
     end
   },
 
--- lsp-condig 
 
-  {
-    "williamboman/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-  },
   -- lsp config 
   -- {
   --   "williamboman/mason.nvim",
@@ -124,6 +116,12 @@ return {
   --  "neovim/nvim-lspconfig",
   --  config = function()
   --    require('plugins/config/lsp')
+  --  end
+  -- },
+  -- {
+  --  "mfussenegger/nvim-lint",
+  --  config = function()
+  --    require('plugins/config/nvim-lint')
   --  end
   -- },
 }
