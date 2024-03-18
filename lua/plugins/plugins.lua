@@ -13,18 +13,18 @@ return {
       vim.cmd[[colorscheme kanagawa]]
     end
   },
-  { 'Shougo/deoplete.nvim',
-  },
-  { 'zchee/deoplete-jedi',
-  },
-  { 'davidhalter/jedi-vim',
-  },
-  { 'Shougo/neosnippet.vim',
-  },
-  { 'Shougo/neosnippet-snippets',
-  },
-  { 'w0rp/ale',
-  },
+  --  { 'Shougo/deoplete.nvim',
+  --  },
+  --  { 'zchee/deoplete-jedi',
+  --  },
+  --  { 'davidhalter/jedi-vim',
+  --  },
+  --  { 'Shougo/neosnippet.vim',
+  --  },
+  --  { 'Shougo/neosnippet-snippets',
+  --  },
+  -- { 'w0rp/ale',
+  -- },
   { 'jiangmiao/auto-pairs',
   },
   { 'voldikss/vim-floaterm',
@@ -96,28 +96,34 @@ return {
 
 
   -- lsp config 
-  -- {
-  --   "williamboman/mason.nvim",
-  --   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
-  --   dependencies = {
-  --     'nvim-tree/nvim-web-devicons',
-  --   },
-  -- },
-  -- {
-  --   'hrsh7th/cmp-nvim-lsp'
-  -- },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  -- },
-  -- {
-  --   'williamboman/mason-lspconfig.nvim',
-  -- },
-  -- {
-  --  "neovim/nvim-lspconfig",
-  --  config = function()
-  --    require('plugins/config/lsp')
-  --  end
-  -- },
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp'
+  },
+  {
+    "hrsh7th/nvim-cmp",
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+  },
+  {
+   "neovim/nvim-lspconfig",
+   config = function()
+     require('plugins/config/lsp')
+   end
+  },
+  {
+   "jose-elias-alvarez/null-ls.nvim",
+   config = function()
+     require('plugins/config/null-ls')
+   end
+  },
   -- {
   --  "mfussenegger/nvim-lint",
   --  config = function()
