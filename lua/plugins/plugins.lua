@@ -1,8 +1,6 @@
 return {
-
   { 'nvim-lua/plenary.nvim'
   },
-
 
   { "rebelot/kanagawa.nvim",
     name = "kanagawa",
@@ -27,6 +25,7 @@ return {
   },
   { 'jiangmiao/auto-pairs',
   },
+
   { 'voldikss/vim-floaterm',
     config = function()
       require('plugins/config/vim-floaterm')
@@ -94,20 +93,12 @@ return {
     end
   },
 
-
-  -- lsp config 
   -- {
   --   "williamboman/mason.nvim",
   --   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
   --   dependencies = {
   --     'nvim-tree/nvim-web-devicons',
   --   },
-  -- },
-  -- {
-  --   'hrsh7th/cmp-nvim-lsp'
-  -- },
-  -- {
-  --   "hrsh7th/nvim-cmp",
   -- },
   -- {
   --   'williamboman/mason-lspconfig.nvim',
@@ -117,6 +108,25 @@ return {
   --  config = function()
   --    require('plugins/config/lsp')
   --  end
+  -- },
+
+  -- {
+  -- 'hrsh7th/cmp-buffer'
+  -- },
+  -- {
+  --  'hrsh7th/nvim-cmp'
+  -- },
+  -- {
+  --  'hrsh7th/cmp-cmdline'
+  -- },
+  -- {
+  --   'hrsh7th/cmp-nvim-lsp'
+  -- },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  -- },
+  -- {
+  --   "hrsh7th/nvim-cmp",
   -- },
   -- {
   --  "mfussenegger/nvim-lint",
