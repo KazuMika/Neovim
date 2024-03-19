@@ -25,15 +25,6 @@ return {
     { 'ervandew/supertab',
     },
     {
-        'hrsh7th/cmp-path',
-    },
-    -- {
-    --     'hrsh7th/cmp-vsnip',
-    -- },
-    -- {
-    --     'hrsh7th/vim-vsnip',
-    -- },
-    {
         'kien/ctrlp.vim',
         config = function()
             require('plugins/config/ctrlp')
@@ -46,18 +37,6 @@ return {
             require('plugins/config/lualine')
         end
     },
-    {
-        'lewis6991/gitsigns.nvim',
-        config = function()
-            require('plugins/config/gitsigns')
-        end
-    },
-    -- {
-    --     'numToStr/Comment.nvim',
-    --     config = function()
-    --         require('plugins/config/comment')
-    --     end
-    -- },
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = {
@@ -103,6 +82,15 @@ return {
         },
     },
     {
+        'hrsh7th/cmp-path',
+    },
+    {
+        'hrsh7th/cmp-vsnip',
+    },
+    {
+        'hrsh7th/vim-vsnip',
+    },
+    {
         'hrsh7th/cmp-nvim-lsp'
     },
     {
@@ -123,6 +111,8 @@ return {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
         build = "make install_jsregexp",
+        -- dependencies = { "rafamadriz/friendly-snippets" },
+        dependencies = { "honza/vim-snippets" },
         config = function()
             require('plugins/config/luasnip')
         end
@@ -135,7 +125,6 @@ return {
         end
 
     },
-
     {
         "jay-babu/mason-null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -148,11 +137,18 @@ return {
         end
     },
     {
-        "elentok/format-on-save.nvim",
+        "mhartington/formatter.nvim",
         config = function()
-            require('plugins/config/format_on_save')
+            require('plugins/config/formatter')
         end
     },
+
+    -- {
+    --     "elentok/format-on-save.nvim",
+    --     config = function()
+    --         require('plugins/config/format_on_save')
+    --     end
+    -- },
     -- {
     --  "mfussenegger/nvim-lint",
     --  config = function()

@@ -2,7 +2,7 @@ require("mason").setup()
 require("mason-null-ls").setup({
     ensure_installed = {
         "flake8",
-        "clang_format",
+        -- "clang_format",
         "black",
         "stylua",
         "luacheck",
@@ -17,4 +17,3 @@ require("null-ls").setup({
         -- Anything not supported by mason.
     }
 })
-
