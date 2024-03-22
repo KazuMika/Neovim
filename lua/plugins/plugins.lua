@@ -25,6 +25,9 @@ return {
     { 'ervandew/supertab',
     },
     {
+        "hrsh7th/cmp-nvim-lsp-signature-help"
+    },
+    {
         'kien/ctrlp.vim',
         config = function()
             require('plugins/config/ctrlp')

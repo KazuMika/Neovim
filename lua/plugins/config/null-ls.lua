@@ -4,8 +4,8 @@ require("mason-null-ls").setup({
         "flake8",
         -- "clang_format",
         "black",
-        "stylua",
-        "luacheck",
+        -- "stylua",
+        -- "luacheck",
         -- "autopep8",
         -- Opt to list sources here, when available in mason.
     },

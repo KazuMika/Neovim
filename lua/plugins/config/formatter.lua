@@ -17,24 +17,23 @@ require("formatter").setup {
     -- html = {
     --   require("formatter.filetypes.html").prettier,
     -- },
-    -- markdown = {
-    --   require("formatter.filetypes.markdown").prettier,
-    -- },
+    markdown = {
+      require("formatter.filetypes.markdown").prettier,
+    },
     -- json = {
     --   require("formatter.filetypes.json").prettier,
     -- },
     -- javascript = {
     --   require("formatter.filetypes.javascript").prettier,
     -- },
-    -- bash = {
-    --   require("formatter.filetypes.sh").shellharden,
-    -- },
-    -- lua = {
-    --   -- "formatter.filetypes.lua" defines default configurations for the
-    --   -- "lua" filetype
-    --   require("formatter.filetypes.lua").st,
-    -- },
-
+    bash = {
+      require("formatter.filetypes.sh").shellharden,
+    },
+    lua = {
+      -- "formatter.filetypes.lua" defines default configurations for the
+      -- "lua" filetype
+      -- require("formatter.filetypes.lua").stylua,
+    },
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
     ["*"] = {

@@ -35,7 +35,9 @@ local luasnip = require("luasnip")
 
 local cmp = require("cmp")
 cmp.setup({
+    preselect = cmp.PreselectMode.None,
     snippet = {
+
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
             -- vim.fn["vsnip#anonymous"](args.body)
@@ -79,9 +81,17 @@ cmp.setup({
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
-        ["<CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
+        -- ["<CR>"] = cmp.mapping.confirm({
+        --     behavior = cmp.ConfirmBehavior.Replace,
+        --     select = true,
+        ["<CR>"] = cmp.mapping({
+        i = function(fallback)
+          if cmp.visible() and cmp.get_active_entry() then
+            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+          else
+            fallback()
+          end
+        end,
         }),
         -- ["<Tab>"] = cmp.mapping(cmp.mapping.confirm(), { "i", "s" }),
         -- ["<S-Tab>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
@@ -91,6 +101,7 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = 'luasnip' },
         { name = "path" },
+        { name = 'nvim_lsp_signature_help' },
         -- { name = "buffer" },
     },
     experimental = {
