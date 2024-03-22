@@ -1,13 +1,19 @@
 require("mason").setup()
 require("mason-null-ls").setup({
     ensure_installed = {
-        "flake8",
-        -- "clang_format",
-        "black",
-        -- "stylua",
-        -- "luacheck",
-        -- "autopep8",
-        -- Opt to list sources here, when available in mason.
+    "flake8",
+    "black",
+
+    "prettier",
+
+    "beautysh",
+    "shellcheck",
+
+    "clang-format",
+    "cpplint",
+
+    "luacheck",
+    -- "stylua"
     },
     automatic_installation = false,
     handlers = {},

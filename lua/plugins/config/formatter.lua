@@ -14,18 +14,15 @@ require("formatter").setup {
     python = {
       require("formatter.filetypes.python").black,
     },
-    -- html = {
-    --   require("formatter.filetypes.html").prettier,
-    -- },
+    html = {
+      require("formatter.filetypes.html").prettier,
+    },
     markdown = {
       require("formatter.filetypes.markdown").prettier,
     },
-    -- json = {
-    --   require("formatter.filetypes.json").prettier,
-    -- },
-    -- javascript = {
-    --   require("formatter.filetypes.javascript").prettier,
-    -- },
+    javascript = {
+      require("formatter.filetypes.javascript").prettier,
+    },
     bash = {
       require("formatter.filetypes.sh").shellharden,
     },
