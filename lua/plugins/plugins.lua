@@ -114,11 +114,13 @@ return {
         "L3MON4D3/LuaSnip",
         version = "v2.*",
         build = "make install_jsregexp",
-        -- dependencies = { "rafamadriz/friendly-snippets" },
-        dependencies = { "honza/vim-snippets" },
+        dependencies = { "rafamadriz/friendly-snippets" },
+        -- dependencies = { "honza/vim-snippets" },
         config = function()
             require('plugins/config/luasnip')
         end
+    },
+    { "saadparwaiz1/cmp_luasnip",
     },
 
     {

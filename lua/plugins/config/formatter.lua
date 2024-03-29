@@ -33,6 +33,10 @@ require("formatter").setup {
   filetype = {
     -- Formatter configurations for filetype "lua" go here
     -- and will be executed in order
+    latex={
+
+      require("formatter.filetypes.latex").bibtextidy,
+    },
     python = {
       require("formatter.filetypes.python").black,
     },

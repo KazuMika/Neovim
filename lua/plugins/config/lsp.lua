@@ -37,11 +37,9 @@ local cmp = require("cmp")
 cmp.setup({
     preselect = cmp.PreselectMode.None,
     snippet = {
-
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-            -- vim.fn["vsnip#anonymous"](args.body)
-        end,
+      expand = function(args)
+        require'luasnip'.lsp_expand(args.body)
+      end
     },
     -- mapping = cmp.mapping.preset.insert({
     --     ["<C-p>"] = cmp.mapping.select_prev_item(),
