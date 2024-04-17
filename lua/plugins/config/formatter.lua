@@ -46,11 +46,8 @@ require("formatter").setup {
     markdown = {
       require("formatter.filetypes.markdown").prettier,
     },
-    javascript = {
-      require("formatter.filetypes.javascript").prettier,
-    },
     bash = {
-      require("formatter.filetypes.sh").shellharden,
+      require("formatter.filetypes.sh").shfmt,
     },
     cpp = { patch_clangformat_bug(require('formatter.filetypes.cpp').clangformat) },
 

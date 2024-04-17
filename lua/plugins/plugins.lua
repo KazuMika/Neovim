@@ -149,6 +149,13 @@ return {
     },
 
     -- {
+    --     "aserowy/tmux.nvim",
+    --     config = function()
+    --         require('plugins/config/tmux')
+    --     end
+    -- },
+
+    -- {
     --     "elentok/format-on-save.nvim",
     --     config = function()
     --         require('plugins/config/format_on_save')

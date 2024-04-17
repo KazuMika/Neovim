@@ -13,7 +13,17 @@ require("mason-null-ls").setup({
     "cpplint",
 
     "luacheck",
-    -- "stylua"
+
+    -- LSP
+    "pyright",
+    -- "pylyzer",
+    "clangd",
+    "htmlhint",
+    "stylua",
+    "base-language-server",
+    "bibtex-tidy",
+    "html-lsp",
+    "texlab",
     },
     automatic_installation = false,
     handlers = {},

@@ -19,8 +19,7 @@ require("nvim-tree").setup {
   on_attach = my_on_attach,
   filters = {
     dotfiles = true,
-    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
-  },
+    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },},
   disable_netrw = true,
   hijack_netrw = true,
   hijack_cursor = true,
@@ -35,22 +34,18 @@ require("nvim-tree").setup {
     side = "left",
     width = 30,
     preserve_window_proportions = true,
-
-
-
-
   },
   git = {
     enable = false,
     ignore = true,
   },
   filesystem_watchers = {
-    enable = true,
+    enable = false,
   },
   actions = {
-    open_file = {
-      resize_window = true,
-    },
+      open_file = {
+          resize_window = true
+      },
   },
   renderer = {
     root_folder_label = false,
