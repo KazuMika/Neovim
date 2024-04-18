@@ -16,7 +16,6 @@ require("mason-null-ls").setup({
 
     -- LSP
     "pyright",
-    -- "pylyzer",
     "clangd",
     "htmlhint",
     "stylua",
