@@ -4,10 +4,10 @@ require("mason-null-ls").setup({
     "flake8",
     "black",
 
-    "prettier",
-
     "beautysh",
     "shellcheck",
+
+    "prettier",
 
     "clang-format",
     "cpplint",
@@ -15,14 +15,14 @@ require("mason-null-ls").setup({
     "luacheck",
 
     -- LSP
-    "pyright",
-    "clangd",
-    "htmlhint",
-    "stylua",
-    "base-language-server",
-    "bibtex-tidy",
-    "html-lsp",
-    "texlab",
+    -- "pyright",
+    -- "clangd",
+    -- "html-lsp",
+    -- "htmlhint",
+    -- "stylua",
+    -- "base-language-server",
+    -- "bibtex-tidy",
+    -- "texlab",
     },
     automatic_installation = false,
     handlers = {},
