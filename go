@@ -15,10 +15,9 @@ fi
 if [ $which == git ]; then
     echo "--- [START] $which ---"
     comment=""
-    git add . 
+    git add .
     git commit -m "`date +%Y.%m.%d` $comment"
     git push
 
     echo "--- [END  ] $which ---"
 fi
-
