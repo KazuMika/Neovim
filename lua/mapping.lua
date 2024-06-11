@@ -3,7 +3,7 @@ local map = vim.keymap.set
 local g = vim.g
 g.mapleader = ","
 map("i", "jj", "<ESC>", { silent = true, desc = "jj to ESC" })
-map("i", "zz", "<ESC>zza", { silent = true })
+map("i", "<leader>r", "<ESC>zza", { silent = true })
 -- map("i", ";", ":", { noremap = true })
 -- map("i", ":", ";", { noremap = true })
 -- map("n", ";", ":", { noremap = true })
@@ -22,7 +22,7 @@ map("n", "tj", "<cmd>tabprev<cr>", { noremap = true })
 map("n", "tk", "<cmd>tabnext<cr>", { noremap = true })
 map("n", "tl", "<cmd>tablast<cr>", { noremap = true })
 vim.cmd [[ tmap <Esc> <c-\><c-n> ]]
-map("n", "<leader>cd", "<cmd>cd %:h <CR>", { noremap = true })
+map("n", "<leader>g", "<cmd>cd %:h <CR>", { noremap = true })
 map("i", "<C-f>", "<Right>", { noremap = true })
 map("n", "<leader>''", "<cmd>Telescope find_files<cr>", { noremap = true })
 map("n", "<leader>':", "<cmd>Telescope live_grep<cr>", { noremap = true })
