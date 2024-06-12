@@ -4,8 +4,7 @@ require("mason-null-ls").setup {
   ensure_installed = {
 
     -- Lineter
-    -- "prettier",
-    -- "htmlhint",
+    "prettier",
     "beautysh",
     "shellcheck",
     "cpplint",
@@ -19,6 +18,7 @@ require("mason-null-ls").setup {
     "pyright",
     "clangd",
     "lua-language-server",
+
     -- "html-lsp",
   },
   automatic_installation = false,
