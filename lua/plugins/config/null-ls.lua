@@ -5,13 +5,13 @@ require("mason-null-ls").setup {
 
     -- Lineter
     "prettier",
-    "beautysh",
     "shellcheck",
     "cpplint",
     "luacheck",
 
     -- Formatter
     "clang-format",
+    "shfmt",
     --stylua install with cargo
 
     -- LSP

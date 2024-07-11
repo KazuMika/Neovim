@@ -1,13 +1,13 @@
 -- load lazy.nvim
 --
 -- encoding
-local o = vim.o
+local o = vim.opt
 -- local autocmd = vim.api.nvim_create_autocmd
-vim.o.encoding = 'utf-8'
-vim.scriptencoding = 'utf-8'
+vim.opt.encoding = "utf-8"
+vim.scriptencoding = "utf-8"
 
 -- visual
-o.ambiwidth = 'double'
+o.ambiwidth = "double"
 o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
@@ -24,12 +24,14 @@ o.ignorecase = true
 o.smartcase = true
 o.hlsearch = true
 
-vim.opt.clipboard:append { 'unnamedplus' }
+o.clipboard:append { "unnamedplus" }
+vim.api.nvim_set_option("clipboard", "unnamedplus")
+
 o.ttimeout = true
 o.ttimeoutlen = 50
 
 o.undofile = true
-o.undodir = vim.fn.stdpath('cache') .. '/undo'
+o.undodir = vim.fn.stdpath "cache" .. "/undo"
 
 o.tabstop = 4
 o.shiftwidth = 4
@@ -48,7 +50,6 @@ o.showmatch = true
 o.list = true
 o.timeoutlen = 200
 o.swapfile = false
-
 
 -- vim.cmd([[
 --   imap <C-k>     <Plug>(neosnippet_expand_or_jump)

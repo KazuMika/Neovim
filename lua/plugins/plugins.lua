@@ -145,6 +145,10 @@ return {
     end,
   },
 
+  {
+    "ojroques/vim-oscyank",
+  },
+
   -- {
   --     "aserowy/tmux.nvim",
   --     config = function()

@@ -3,7 +3,7 @@ local map = vim.keymap.set
 local g = vim.g
 g.mapleader = ","
 map("i", "jj", "<ESC>", { silent = true, desc = "jj to ESC" })
-map("i", "<leader>r", "<ESC>zza", { silent = true })
+map("i", "zz", "<ESC>zza", { silent = true })
 -- map("i", ";", ":", { noremap = true })
 -- map("i", ":", ";", { noremap = true })
 -- map("n", ";", ":", { noremap = true })
@@ -42,6 +42,12 @@ map("n", "<leader>rt", "<cmd>NvimTreeResize 70<cr>", { noremap = true })
 map("n", "<leader>tr", "<cmd>NvimTreeResize 30<cr>", { noremap = true })
 map("n", "<leader>re", "<cmd>FloatermUpdate --height=1.0<cr>", { noremap = true })
 map("n", "<leader>er", "<cmd>FloatermUpdate --height=0.2<cr>", { noremap = true })
+map("n", "<leader>,", "<cmd>CtrlPMRU<cr>", { noremap = true })
+map("n", "<leader>f", "<cmd>CtrlP<cr>", { noremap = true })
+map("n", "<leader>b", "<cmd>CtrlPBuffer<cr>", { noremap = true })
+map("n", "<leader>c", "<cmd>CtrlPClearCache<cr>", { noremap = true })
+-- map("n", "<leader>c", "<cmd>OSCYankVisual<cr>", { noremap = true })
+-- map("n", "<leader>cc", "<leader>c_<cr>", { noremap = true })
 
 -- map('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 -- map('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<CR>')

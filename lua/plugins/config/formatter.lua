@@ -46,6 +46,7 @@ require("formatter").setup {
     },
     bash = {
       require("formatter.filetypes.sh").shfmt,
+      -- require("formatter.filetypes.sh").beautysh,
     },
     cpp = { patch_clangformat_bug(require("formatter.filetypes.cpp").clangformat) },
 
