@@ -8,10 +8,12 @@ require("mason-null-ls").setup {
     "shellcheck",
     "cpplint",
     "luacheck",
+    -- "vale",
 
     -- Formatter
     "clang-format",
     "shfmt",
+    -- "latexindent",
     --stylua install with cargo
 
     -- LSP
@@ -26,6 +28,10 @@ require("mason-null-ls").setup {
 }
 require("null-ls").setup {
   sources = {
+    -- local null_present, null_ls = pcall(require, "null-ls")
+    -- null_ls_sources.latexindent,
+    -- null_ls_sources.chktex,
+    -- Diagnostics
     -- Anything not supported by mason.
   },
 }
