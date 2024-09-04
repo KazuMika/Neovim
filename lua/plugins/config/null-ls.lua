@@ -18,6 +18,8 @@ require("mason-null-ls").setup {
 
     -- LSP
     "pyright",
+    --"jedi-language-server",
+    --"pylyzer",
     "clangd",
     "lua-language-server",
 

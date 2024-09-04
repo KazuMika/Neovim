@@ -1,4 +1,3 @@
-
 local function my_on_attach(bufnr)
   local api = require "nvim-tree.api"
 
@@ -10,8 +9,8 @@ local function my_on_attach(bufnr)
   api.config.mappings.default_on_attach(bufnr)
 
   -- custom mappings
-  vim.keymap.set('n', 'u', api.tree.change_root_to_parent,        opts('Up'))
-  vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+  vim.keymap.set("n", "u", api.tree.change_root_to_parent, opts "Up")
+  vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
 end
 
 -- pass to setup along with your other options
@@ -19,7 +18,8 @@ require("nvim-tree").setup {
   on_attach = my_on_attach,
   filters = {
     dotfiles = true,
-    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },},
+    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
+  },
   disable_netrw = true,
   hijack_netrw = true,
   hijack_cursor = true,
@@ -32,7 +32,7 @@ require("nvim-tree").setup {
   view = {
     adaptive_size = false,
     side = "left",
-    width = 30,
+    width = 35,
     preserve_window_proportions = true,
   },
   git = {
@@ -43,9 +43,9 @@ require("nvim-tree").setup {
     enable = false,
   },
   actions = {
-      open_file = {
-          resize_window = true
-      },
+    open_file = {
+      resize_window = true,
+    },
   },
   renderer = {
     root_folder_label = false,
@@ -85,7 +85,7 @@ require("nvim-tree").setup {
         },
       },
     },
-},
+  },
 }
 
 vim.keymap.set("n", "<C-n>", "<cmd> NvimTreeToggle <CR>")
