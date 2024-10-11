@@ -3,7 +3,8 @@ local map = vim.keymap.set
 local g = vim.g
 g.mapleader = ","
 map("i", "jj", "<ESC>", { silent = true, desc = "jj to ESC" })
-map("i", "ff", "<ESC>zza", { silent = true })
+map("i", "ff", "<ESC>zz<ESC>A<cr>", { silent = true })
+map("n", "ff", "<ESC>zza", { silent = true })
 -- map("i", ";", ":", { noremap = true })
 -- map("i", ":", ";", { noremap = true })
 -- map("n", ";", ":", { noremap = true })
